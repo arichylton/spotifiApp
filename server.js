@@ -27,11 +27,7 @@ let credentials = {
   clientSecret: process.env.CLIENT_SECRET,
 };
 
-app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-app.get('/', function (req, res) {
-  res.render(path.resolve(__dirname, '../client/build/index.html'));
-});
+app.use(express.static(path.resolve('client', 'build')));
 
 app.post('/refresh', (req, res) => {
   const refreshToken = req.body.refreshToken;
@@ -82,8 +78,8 @@ app.post('/login', (req, res) => {
 //   res.json({ lyrics });
 // });
 
-app.get('*', function (req, res) {
-  res.sendFile(path.resolve(__dirname, '../client/public', 'index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('client', 'build', 'index.html'));
 });
 
 app.listen(PORT, () => {
