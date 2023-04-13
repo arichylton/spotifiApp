@@ -1,0 +1,9 @@
+.track-item:hover {
+  scale: 1.01;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.track-item:active {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: translateY(1px) translateX(1px);
+}

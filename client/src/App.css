@@ -1,0 +1,16 @@
+:root {
+  --spotifyColor: '#1DB954';
+}
+
+.app {
+  min-height: 100vh;
+} 
+
+ul {
+  list-style-type: none;
+}
+
+.player {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+}
+

@@ -1,0 +1,15 @@
+
+a {
+
+  text-decoration: none;
+}
+
+nav .shift-item .active {
+  background-color: black;
+}
+
+a:active {
+  scale: 1.0;
+}
+
+

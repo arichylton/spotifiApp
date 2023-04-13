@@ -1,0 +1,19 @@
+.album__img {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
+}
+
+.album__img-icon {
+  padding: 6rem;
+}
+
+.album__item {
+  transition: 0.2s;
+}
+
+.album__item-stat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.album__item:hover {
+  scale: 1.1;
+}
