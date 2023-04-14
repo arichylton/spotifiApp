@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const redirectUri = process.env.REDIRECT_URI || 'http://localhost:3001';
+const redirectUri =
+  process.env.REACT_APP_REDIRECT_URI || 'http://localhost:3001';
 
 const useAuth = (code) => {
   const [accessToken, setAccessToken] = useState();
@@ -9,6 +10,7 @@ const useAuth = (code) => {
   const [expiresIn, setExpiresIn] = useState();
 
   useEffect(() => {
+    console.log(redirectUri);
     axios
       .post(`${redirectUri}/login`, { code })
       .then((res) => {
