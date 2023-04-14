@@ -88,5 +88,5 @@ app.get('*', function (req, res) {
 });
 
 app.listen(PORT, () => {
-  console.log('Port running on: ', 3001);
+  console.log('Port running on: ', PORT);
 });

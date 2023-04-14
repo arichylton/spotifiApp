@@ -16,7 +16,7 @@ const useAuth = (code) => {
   useEffect(() => {
     console.log(redirectUri);
     axios
-      .post(`http://localhost:3001/login`, { code })
+      .post(`http://stark-lowlands-55596.herokuapp.com/login`, { code })
       .then((res) => {
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
@@ -32,7 +32,7 @@ const useAuth = (code) => {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post(`http://localhost:3001/refresh`, {
+        .post(`http://stark-lowlands-55596.herokuapp.com/refresh`, {
           refreshToken,
         })
         .then((res) => {
