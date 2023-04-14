@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-let redirectUri = '';
+let redirectUri = process.env.REACT_APP_REDIRECT_URI;
 
 // if (process.env.NODE_ENV !== 'production') {
 //   redirectUri = 'http://localhost:3001';
@@ -16,7 +16,7 @@ const useAuth = (code) => {
   useEffect(() => {
     console.log(redirectUri);
     axios
-      .post(`http://stark-lowlands-55596.herokuapp.com/login`, { code })
+      .post(`${redirectUri}/login`, { code })
       .then((res) => {
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
@@ -32,7 +32,7 @@ const useAuth = (code) => {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post(`http://stark-lowlands-55596.herokuapp.com/refresh`, {
+        .post(`${redirectUri}/refresh`, {
           refreshToken,
         })
         .then((res) => {
