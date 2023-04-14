@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const redirectUri =
-  process.env.REACT_APP_REDIRECT_URI || 'http://localhost:3001';
+let redirectUri = '';
+
+if (process.env.NODE_ENV !== 'production') {
+  redirectUri = 'http://localhost:3001';
+}
+
 
 const useAuth = (code) => {
   const [accessToken, setAccessToken] = useState();

@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3001;
 if (process.env.NODE_ENV !== 'production') {
   REDIRECT_URI = 'http://localhost:3000';
 }
+
 const express = require('express');
 const spotifyWebApi = require('spotify-web-api-node');
 const cors = require('cors');
@@ -18,11 +19,11 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+ 
 let credentials = {
   redirectUri: REDIRECT_URI,
-  clientId: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
+  clientId: CLIENT_ID,
+  clientSecret: CLIENT_SECRET,
 };
 console.log(credentials);
 app.use(express.static(path.resolve(__dirname, './client/build')));
