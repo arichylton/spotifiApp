@@ -2,13 +2,11 @@ require('dotenv').config();
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-let REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3001/callback';
-let FRONTEND_URI = process.env.FRONTEND_URI || 'http://localhost:3000';
+let REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000';
 const PORT = process.env.PORT || 3001;
 
 if (process.env.NODE_ENV !== 'production') {
-  REDIRECT_URI = 'http://localhost:3001/callback';
-  FRONTEND_URI = 'http://localhost:3000';
+  REDIRECT_URI = 'http://localhost:3000';
 }
 const express = require('express');
 const spotifyWebApi = require('spotify-web-api-node');
@@ -22,12 +20,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 let credentials = {
-  redirectUri: process.env.REDIRECT_URI,
+  redirectUri: REDIRECT_URI,
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
 };
+console.log(credentials);
+app.use(express.static(path.resolve(__dirname, './client/build')));
 
-app.use(express.static(path.resolve('client', 'build')));
+app.get('/', function (req, res) {
+  res.render(path.resolve(__dirname, './client/build/index.html'));
+});
 
 app.post('/refresh', (req, res) => {
   const refreshToken = req.body.refreshToken;
@@ -55,9 +57,11 @@ app.post('/refresh', (req, res) => {
 app.post('/login', (req, res) => {
   const code = req.body.code;
   const spotifyApi = new spotifyWebApi(credentials);
+  
   spotifyApi
     .authorizationCodeGrant(code)
     .then((data) => {
+      console.log(data);
       res.json({
         accessToken: data.body.access_token,
         refreshToken: data.body.refresh_token,
@@ -78,8 +82,8 @@ app.post('/login', (req, res) => {
 //   res.json({ lyrics });
 // });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve('client', 'build', 'index.html'));
+app.get('*', function (req, res) {
+  res.sendFile(path.resolve(__dirname, './client/public', 'index.html'));
 });
 
 app.listen(PORT, () => {

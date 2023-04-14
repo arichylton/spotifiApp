@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+const redirectUri = process.env.REDIRECT_URI || 'http://localhost:3001';
+
 const useAuth = (code) => {
   const [accessToken, setAccessToken] = useState();
   const [refreshToken, setRefreshToken] = useState();
@@ -8,7 +10,7 @@ const useAuth = (code) => {
 
   useEffect(() => {
     axios
-      .post('http://localhost:3001/login', { code })
+      .post(`${redirectUri}/login`, { code })
       .then((res) => {
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
@@ -16,7 +18,7 @@ const useAuth = (code) => {
         window.history.pushState({}, null, '/');
       })
       .catch((error) => {
-        window.location = '/';
+        // window.location = '/';
       });
   }, [code]);
 
@@ -24,7 +26,7 @@ const useAuth = (code) => {
     if (!refreshToken || !expiresIn) return;
     const interval = setInterval(() => {
       axios
-        .post('http://localhost:3001/refresh', { refreshToken })
+        .post(`${redirectUri}/refresh`, { refreshToken })
         .then((res) => {
           setAccessToken(res.data.accessToken);
           setExpiresIn(res.data.expiresIn);
