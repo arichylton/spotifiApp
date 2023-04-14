@@ -24,7 +24,7 @@ let credentials = {
   clientId: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
 };
-console.log(credentials);
+
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.get('/', function (req, res) {
@@ -83,7 +83,7 @@ app.post('/login', (req, res) => {
 // });
 
 app.get('*', function (req, res) {
-  res.sendFile(path.resolve(__dirname, './client/public', 'index.html'));
+  res.sendFile(path.resolve('client', 'build'));
 });
 
 app.listen(PORT, () => {

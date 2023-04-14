@@ -14,7 +14,6 @@ const useAuth = (code) => {
   const [expiresIn, setExpiresIn] = useState();
 
   useEffect(() => {
-    console.log(redirectUri);
     axios
       .post(`${redirectUri}/login`, { code })
       .then((res) => {
@@ -24,7 +23,7 @@ const useAuth = (code) => {
         window.history.pushState({}, null, '/');
       })
       .catch((error) => {
-        // window.location = '/';
+        window.location = '/';
       });
   }, [code]);
 
