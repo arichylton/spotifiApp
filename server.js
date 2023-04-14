@@ -2,12 +2,12 @@ require('dotenv').config();
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-let REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000';
+let REDIRECT_URI = process.env.REDIRECT_URI;
 const PORT = process.env.PORT || 3001;
 
-if (process.env.NODE_ENV !== 'production') {
-  REDIRECT_URI = 'http://localhost:3000';
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   REDIRECT_URI = 'http://localhost:3000';
+// }
 
 const express = require('express');
 const spotifyWebApi = require('spotify-web-api-node');
