@@ -3,7 +3,7 @@ import '../styles/login.css'
 
 const CLIENT_ID = '90a462053588436b95c0d6ad460a9878';
 const RESPONSE_TYPE = 'code';
-const REDIRECT_URI = 'http://localhost:3000';
+const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
 const SCOPE =
   'streaming user-read-email user-read-private user-library-read user-library-modify user-read-playback-state user-modify-playback-state user-read-recently-played user-top-read user-follow-read user-follow-modify playlist-read-private playlist-read-collaborative playlist-modify-public';
 

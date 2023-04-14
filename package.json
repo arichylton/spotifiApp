@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "devStart": "nodemon server.js",
+    "heroku-postbuild": "cd client && npm i --legacy-peer-deps && npm run build"
   },
   "keywords": [],
   "author": "",
