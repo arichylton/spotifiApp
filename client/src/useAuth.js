@@ -3,9 +3,9 @@ import axios from 'axios';
 
 let redirectUri = '';
 
-if (process.env.NODE_ENV !== 'production') {
-  redirectUri = 'http://localhost:3001';
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   redirectUri = 'http://localhost:3001';
+// }
 
 
 const useAuth = (code) => {
