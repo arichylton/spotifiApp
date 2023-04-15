@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap';
 import { isLocalhost } from '../utils';
 import '../styles/login.css';
 
-const CLIENT_ID = '90a462053588436b95c0d6ad460a9878';
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const RESPONSE_TYPE = 'code';
 let LOGIN_URL = process.env.REACT_APP_REDIRECT_URI;
 const SCOPE =

@@ -76,14 +76,6 @@ app.post('/login', (req, res) => {
     });
 });
 
-// app.get('/lyrics', async (req, res) => {
-//   console.log(req.query);
-//   const lyrics =
-//     (await lyricsFinder(req.query.artist, req.query.title)) ||
-//     'No lyrics found';
-//   res.json({ lyrics });
-// });
-
 app.get('*', function (req, res) {
   res.sendFile(path.resolve('client', 'build'));
 });
