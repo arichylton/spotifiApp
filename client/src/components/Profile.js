@@ -13,6 +13,7 @@ import useAuth from '../useAuth';
 import Artist from './Artist';
 import Playlist from './Playlist';
 import Album from './Album';
+import ErrorPage from './ErrorPage';
 
 const CLIENT_ID = '90a462053588436b95c0d6ad460a9878';
 const spotifyApi = new SpotifyWebApi({
@@ -35,6 +36,7 @@ const Profile = ({ code }) => {
     <div>
       <Navbar />
       <Routes>
+        <Route path='*' element={<ErrorPage />} />
         <Route
           path='/'
           element={
