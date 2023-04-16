@@ -43,7 +43,7 @@ const User = ({ accessToken, chooseTrack }) => {
               className='d-flex flex-column gap-4'
             >
               <img
-                src={user.images[0].url}
+                src={user.images[0]?.url}
                 alt='Artist'
                 className='rounded user__img'
                 style={{

@@ -15,11 +15,23 @@ const spotifyWebApi = require('spotify-web-api-node');
 const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
+const history = require('connect-history-api-fallback');
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app
+  .use(cors())
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(
+    history({
+      verbose: true,
+      rewrites: [
+        { from: /\/login/, to: '/login' },
+        { from: /\/callback/, to: '/callback' },
+        { from: /\/refresh_token/, to: '/refresh_token' },
+      ],
+    })
+  );
  
 let credentials = {
   redirectUri: REDIRECT_URI,
