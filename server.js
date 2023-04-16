@@ -5,19 +5,33 @@ const CLIENT_SECRET = process.env.CLIENT_SECRET;
 let REDIRECT_URI = process.env.REDIRECT_URI || 'http://localhost:3000';
 const PORT = process.env.PORT || 3001;
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   REDIRECT_URI = 'http://localhost:3000';
 }
+
+console.log(process.env.NODE_ENV);
 const express = require('express');
 const spotifyWebApi = require('spotify-web-api-node');
 const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
+const history = require('connect-history-api-fallback');
 
 const app = express();
-app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app
+  .use(cors())
+  .use(bodyParser.json())
+  .use(bodyParser.urlencoded({ extended: true }))
+  .use(
+    history({
+      verbose: true,
+      rewrites: [
+        { from: /\/login/, to: '/login' },
+        { from: /\/callback/, to: '/callback' },
+        { from: /\/refresh_token/, to: '/refresh_token' },
+      ],
+    })
+  );
  
 let credentials = {
   redirectUri: REDIRECT_URI,
@@ -73,14 +87,6 @@ app.post('/login', (req, res) => {
       res.sendStatus(400);
     });
 });
-
-// app.get('/lyrics', async (req, res) => {
-//   console.log(req.query);
-//   const lyrics =
-//     (await lyricsFinder(req.query.artist, req.query.title)) ||
-//     'No lyrics found';
-//   res.json({ lyrics });
-// });
 
 app.get('*', function (req, res) {
   res.sendFile(path.resolve('client', 'build'));

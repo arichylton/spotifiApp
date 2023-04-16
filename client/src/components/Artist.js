@@ -54,6 +54,12 @@ const Artist = ({ accessToken, chooseTrack }) => {
                 className='rounded mb-3 artist__img'
                 style={{ width: 300, height: 300, objectFit: 'cover' }}
               />
+              <a
+                className='btn btn-secondary mt-2 mb-3 artist__item-stat-btn'
+                href={`https://open.spotify.com/artist/${artist.id}`} rel='noreferrer' target='_blank'
+              >
+                View on Spotify
+              </a>
               <h1 className='mb-3 fw-bold'>{artist.name}</h1>
               <div className='d-flex flex-column fs-5 gap-2 artist__item-stat'>
                 <div className='d-flex flex-column align-items-center text-danger fs-5 fw-bold'>

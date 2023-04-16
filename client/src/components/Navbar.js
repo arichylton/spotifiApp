@@ -3,10 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import spotifyLogo from '../assets/Spotify_Logo_RGB_Green.png';
 import '../styles/navbar.css';
-import { useState } from 'react';
 
 const Navbar = () => {
-  const [expanded, setExpanded] = useState('false');
   return (
     <nav className='navbar navbar-expand-sm container pt-4 pb-4'>
       <div className='container-fluid'>
@@ -21,7 +19,7 @@ const Navbar = () => {
           data-bs-toggle='collapse'
           data-bs-target='#navbarToggler'
           aria-controls='navbarToggler'
-          aria-expanded={expanded}
+          aria-expanded='false'
           aria-label='Toggle navigation'
         >
           <span className='navbar-toggler-icon'></span>
