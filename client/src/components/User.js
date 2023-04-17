@@ -45,7 +45,7 @@ const User = ({ accessToken, chooseTrack }) => {
               <img
                 src={user.images[0]?.url}
                 alt='Artist'
-                className='rounded user__img'
+                className='user__img'
                 style={{
                   width: 260,
                   height: 260,
@@ -72,14 +72,16 @@ const User = ({ accessToken, chooseTrack }) => {
                 </span>
               </div>
             </div>
-            <div className='align-self-center mb-5 user__img user__responsive-carousel'>
+            <div className='align-self-center mb-5  user__responsive-carousel'>
               {playlists ? (
                 <Carousel
-                  showArrows={true}
+                  
                   autoPlay={true}
                   showStatus={false}
                   infiniteLoop={true}
                   showThumbs={false}
+                  showArrows={false}
+                  showIndicators={false}
                 >
                   {playlists.items
                     .filter((playlist) => {
@@ -95,7 +97,7 @@ const User = ({ accessToken, chooseTrack }) => {
                           style={{ cursor: 'pointer' }}
                         >
                           <img
-                            className='rounded'
+                            className='user__img'
                             src={
                               playlist.images.length > 0
                                 ? playlist.images[0].url
@@ -103,7 +105,7 @@ const User = ({ accessToken, chooseTrack }) => {
                             }
                             alt='playlist'
                           />
-                          <p className='fw-bold text-white legend'>
+                          <p className='fw-bold text-white mt-3 fs-5'>
                             {playlist.name !== '  '
                               ? playlist.name
                               : 'Untitled'}
@@ -111,6 +113,7 @@ const User = ({ accessToken, chooseTrack }) => {
                         </Link>
                       );
                     })}
+                    
                 </Carousel>
               ) : (
                 ''

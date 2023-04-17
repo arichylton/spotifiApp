@@ -39,7 +39,7 @@ const Playlist = ({ accessToken, chooseTrack }) => {
                     width: '300px',
                     objectFit: 'cover',
                   }}
-                  className='rounded playlist__img'
+                  className='playlist__img'
                   alt='top-track-img'
                 />
               ) : (

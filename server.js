@@ -32,7 +32,7 @@ app
       ],
     })
   );
- 
+
 let credentials = {
   redirectUri: REDIRECT_URI,
   clientId: CLIENT_ID,
@@ -71,7 +71,7 @@ app.post('/refresh', (req, res) => {
 app.post('/login', (req, res) => {
   const code = req.body.code;
   const spotifyApi = new spotifyWebApi(credentials);
-  
+
   spotifyApi
     .authorizationCodeGrant(code)
     .then((data) => {

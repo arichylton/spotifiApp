@@ -51,7 +51,7 @@ const Artist = ({ accessToken, chooseTrack }) => {
               <img
                 src={artist.images[0].url}
                 alt='Artist'
-                className='rounded mb-3 artist__img'
+                className='mb-3 artist__img'
                 style={{ width: 300, height: 300, objectFit: 'cover' }}
               />
               <a
@@ -115,7 +115,7 @@ const Artist = ({ accessToken, chooseTrack }) => {
                         <img
                           src={album.images[0].url}
                           alt='album'
-                          className='rounded artist__img'
+                          className=' artist__img'
                           style={{ height: `${200}px`, width: `${200}px` }}
                         />
                         <span className='mt-2 artist__item-stat'>

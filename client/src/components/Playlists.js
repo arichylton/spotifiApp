@@ -45,7 +45,7 @@ const Playlists = ({ accessToken }) => {
                         width: '240px',
                         objectFit: 'cover',
                       }}
-                      className='rounded playlist__img'
+                      className='playlist__img'
                       alt='top-track-img'
                     />
                   ) : (
@@ -57,7 +57,7 @@ const Playlists = ({ accessToken }) => {
                         width: '240px',
                         objectFit: 'cover',
                       }}
-                      className='playlist__img rounded playlist__img-icon '
+                      className='playlist__img playlist__img-icon '
                     />
                   )}
                 </Link>
