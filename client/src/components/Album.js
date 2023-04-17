@@ -24,7 +24,6 @@ const Album = ({ accessToken, chooseTrack }) => {
     catchErrors(fetchData());
   }, []);
   
-  console.log(album);
   return (
     <div className='text-white container mt-2'>
       {album ? (
@@ -39,7 +38,7 @@ const Album = ({ accessToken, chooseTrack }) => {
                     width: '300px',
                     objectFit: 'cover',
                   }}
-                  className='rounded album__img'
+                  className='album__img'
                   alt='top-track-img'
                 />
               ) : (
@@ -51,7 +50,7 @@ const Album = ({ accessToken, chooseTrack }) => {
                     width: '300px',
                     objectFit: 'cover',
                   }}
-                  className='album__img rounded album__img-icon'
+                  className='album__img album__img-icon'
                 />
               )}
             </div>

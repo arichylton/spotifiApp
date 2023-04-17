@@ -91,7 +91,7 @@ const UserTopArtists = ({ accessToken, chooseArtist }) => {
                       width: '220px',
                       objectFit: 'cover',
                     }}
-                    className='rounded-circle  artist__img'
+                    className='  artist__img'
                     alt='top-track-img'
                   />
                 </Link>
