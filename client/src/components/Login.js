@@ -6,7 +6,7 @@ const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
 const RESPONSE_TYPE = 'code';
 let LOGIN_URL = process.env.REACT_APP_REDIRECT_URI;
 const SCOPE =
-  'streaming user-read-email user-read-private user-library-read user-read-playback-state user-modify-playback-state user-read-recently-played user-top-read user-follow-read user-follow-modify playlist-read-private';
+  'streaming user-read-email user-read-private user-library-read user-read-playback-state user-modify-playback-state user-read-recently-played user-top-read user-follow-read playlist-read-private';
 
 LOGIN_URL = isLocalhost
   ? 'http://localhost:3000'

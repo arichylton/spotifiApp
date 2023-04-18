@@ -223,3 +223,11 @@ export const getAllArtistData = (token) =>
         short: short.data,
       }))
     );
+
+
+export const logout = () => {
+  window.localStorage.removeItem('spotify_token_timestamp');
+  window.localStorage.removeItem('spotify_access_token');
+  window.localStorage.removeItem('spotify_refresh_token');
+  window.location.reload();
+};
