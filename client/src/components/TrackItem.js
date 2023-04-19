@@ -22,7 +22,7 @@ const TrackItem = ({ track, handlePlay, size, url }) => {
         </div>
       </div>
 
-      <div className='text-muted m-3'>{formatDuration(track?.duration_ms)}</div>
+      <div className='text-muted m-3 ms-auto'>{formatDuration(track?.duration_ms)}</div>
     </div>
   );
 };
