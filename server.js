@@ -9,7 +9,6 @@ if (process.env.NODE_ENV === 'development') {
   REDIRECT_URI = 'http://localhost:3000';
 }
 
-console.log(process.env.NODE_ENV);
 const express = require('express');
 const spotifyWebApi = require('spotify-web-api-node');
 const cors = require('cors');

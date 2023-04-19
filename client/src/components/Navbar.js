@@ -46,6 +46,7 @@ const Navbar = () => {
               {' '}
               Playlists
             </Link>
+
           </ul>
         </div>
       </div>

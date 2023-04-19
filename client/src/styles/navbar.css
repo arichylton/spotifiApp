@@ -1,7 +1,15 @@
 
 a {
-
   text-decoration: none;
+}
+
+.navbar-brand:hover {
+  scale: 1.1;
+}
+
+.nav-link:hover {
+  scale: 1.1;
+  text-decoration: underline;
 }
 
 nav .shift-item .active {

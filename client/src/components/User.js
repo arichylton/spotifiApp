@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getUserInfo } from '../spotify';
+import { getUserInfo, logout } from '../spotify';
 import { catchErrors } from '../utils';
 import { TailSpin } from 'react-loader-spinner';
 import { Carousel } from 'react-responsive-carousel';
@@ -39,9 +39,7 @@ const User = ({ accessToken, chooseTrack }) => {
       {user ? (
         <div className='d-flex flex-column'>
           <div className='user__responsive-container mt-3 mb-1'>
-            <div
-              className='d-flex flex-column gap-4'
-            >
+            <div className='d-flex flex-column align-items-center gap-3'>
               <img
                 src={user.images[0]?.url}
                 alt='Artist'
@@ -52,19 +50,25 @@ const User = ({ accessToken, chooseTrack }) => {
                   objectFit: 'cover',
                 }}
               />
-              <div className='d-flex flex-column gap-1 fw-bold '>
+              <div className='d-flex flex-column gap-1 fw-bold align-center' style={{width: '85%'}}>
                 <h1 className='fs-1 mb-3 text-center '>{user.display_name}</h1>
-                <span className='text-muted fs-5 d-flex justify-content-between align-items-center user__stats'>
+                <span className='mb-4 d-flex justify-content-center'>
+                  <button className='btn btn-outline-light ps-5 pe-5' onClick={logout}>
+                    Logout
+                  </button>
+                </span>
+
+                <span className='text-muted d-flex justify-content-between align-items-center user__stats'>
                   Playlists:{' '}
                   <span style={{ color: '#1DB954' }}>{playlists.total}</span>
                 </span>
-                <span className='text-muted fs-5 d-flex justify-content-between align-items-center user__stats'>
+                <span className='text-muted d-flex justify-content-between align-items-center user__stats'>
                   Followed:{' '}
                   <span style={{ color: '#1DB954' }}>
                     {followedArtists.artists.items.length}
                   </span>
                 </span>
-                <span className='text-muted fs-5 d-flex justify-content-between align-items-center user__stats'>
+                <span className='text-muted d-flex justify-content-between align-items-center user__stats'>
                   Followers:{' '}
                   <span style={{ color: '#1DB954' }}>
                     {user.followers.total}
@@ -75,7 +79,6 @@ const User = ({ accessToken, chooseTrack }) => {
             <div className='align-self-center mb-5  user__responsive-carousel'>
               {playlists ? (
                 <Carousel
-                  
                   autoPlay={true}
                   showStatus={false}
                   infiniteLoop={true}
@@ -113,7 +116,6 @@ const User = ({ accessToken, chooseTrack }) => {
                         </Link>
                       );
                     })}
-                    
                 </Carousel>
               ) : (
                 ''
