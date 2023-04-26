@@ -6,7 +6,7 @@ import '../styles/navbar.css';
 
 const Navbar = () => {
   return (
-    <nav className='navbar navbar-expand-sm container pt-4 pb-4'>
+    <nav className='navbar navbar-expand-md container pt-4 pb-4'>
       <div className='container-fluid'>
         <Link to='/'>
           <div className='logo-container navbar-brand'>
@@ -31,13 +31,13 @@ const Navbar = () => {
               className='text-white ps-4 nav-link nav-item text-end pe-2'
               to='/tracks'
             >
-              Songs
+              Top Songs
             </Link>
             <Link
               className='text-white ps-4 nav-link nav-item text-end pe-2'
               to='/artists'
             >
-              Artists
+             Top Artists
             </Link>
             <Link
               className='text-white ps-4 nav-link nav-item text-end pe-2'
