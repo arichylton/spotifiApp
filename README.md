@@ -38,7 +38,7 @@ git push heroku main   <br>
 
 Add http://app-name.herokuapp.com as a Redirect URI in the spotify application settings   <br>
 
-Once the app is live on Heroku, hitting http://app-name.herokuapp.com/login should be the same as hitting http://localhost:3000/login   <br>
+Once the app is live on Heroku, hitting http://app-name.herokuapp.com/login should be the same as hitting http://localhost:3000/login   <br> 
 
 
 
