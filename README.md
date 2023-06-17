@@ -1,7 +1,7 @@
 ## Playify
 > A web app for visualizing personalized Spotify data
 
-Built with:
+Built with: 
 
 [Spotify Web API](https://developer.spotify.com/documentation/web-api)  <br>
 [Create React App](https://create-react-app.dev/)  <br>
