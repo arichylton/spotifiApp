@@ -4,7 +4,7 @@ import '../styles/track.css';
 const TrackItem = ({ track, handlePlay, size, url }) => {
   return (
     <div
-      className='d-flex align-items-center justify-content-between track-item flex-fill'
+      className='d-flex align-items-center justify-content-between track-item flex-fill ps-2 pe-2'
       style={{ cursor: 'pointer' }}
       onClick={() => handlePlay(track)}
     >
